@@ -18,7 +18,7 @@ const students = [
   {
     name: "Orlando De Gruttola",
     url: "https://example3.github.io/site",
-   // title: "Experiments in Web",
+    title: "To be updated",
     color: "#7a5cb0"
   },
   {
