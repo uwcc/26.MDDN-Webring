@@ -24,8 +24,8 @@ const students = [
   {
     name: "Anouk Froitzheim",
     url: "https://example4.github.io",
-    //title: "Portfolio 2026",
-    color: "#0d9734"
+   title: "To be Updated",
+  color: "#0d9734"
   },
   {
     name: "Lily Hagen",
@@ -45,7 +45,7 @@ const students = [
   {
     name: "Keira Lundy",
     url: "https://example5.github.io",
-    color: "#0d44ab"
+    title: "To be Updated"
   },
   {
     name: "James McTeigue",
