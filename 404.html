@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — MDDN242 Web Ring</title>
+  <meta name="description" content="A webring (of sorts) containing all the personal websites made in the 2026 Te Herenga Waka—Victoria University of Wellington class, MDDN242: AI Coding.">
+ <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mddn242-webring.css">
+  <style>
+    .error-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .error-code {
+      font-family: 'VT323', monospace;
+      font-size: clamp(6rem, 20vw, 12rem);
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: 0.1em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .error-code::before,
+    .error-code::after {
+      content: '+';
+      position: absolute;
+      font-size: 1rem;
+      color: var(--border-dim);
+    }
+
+    .error-code::before { top: 4px; left: 8px; }
+    .error-code::after  { bottom: 4px; right: 8px; }
+
+    .error-box {
+      border: 1px dashed var(--border-dim);
+      padding: 2rem 3rem;
+      position: relative;
+      max-width: 480px;
+    }
+
+    .error-box::before {
+      content: 'ERROR LOG';
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: var(--bg);
+      padding: 0 0.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .error-msg {
+      font-family: 'VT323', monospace;
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .error-sub {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      line-height: 1.8;
+    }
+
+    .back-btn {
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+      padding: 0.6rem 1.5rem;
+      background: transparent;
+      border: 1px dashed var(--accent);
+      color: var(--accent);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+      border-style: solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle" role="group" aria-label="Colour theme">
+    <button class="theme-btn" data-theme="system" aria-label="System theme" aria-pressed="false">SYS</button>
+    <button class="theme-btn" data-theme="light" aria-label="Light theme" aria-pressed="false">LGT</button>
+    <button class="theme-btn" data-theme="dark" aria-label="Dark theme" aria-pressed="false">DRK</button>
+  </div>
+
+  <main class="error-wrap">
+    <span class="error-code" aria-hidden="true">404</span>
+
+    <div class="error-box">
+      <h1 class="error-msg">Page not found</h1>
+      <p class="error-sub">
+        This page doesn't exist in the ring.<br>
+        It may have moved, been removed, or never existed.
+      </p>
+    </div>
+
+    <a class="back-btn" href="/"><span aria-hidden="true">◄</span> Back to the ring</a>
+  </main>
+
+  <script>
+    const themeButtons = document.querySelectorAll('.theme-btn');
+
+    function setTheme(theme) {
+      if (theme === 'system') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.removeItem('theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      }
+      updateThemeButtons(theme);
+    }
+
+    function updateThemeButtons(activeTheme) {
+      themeButtons.forEach(btn => {
+        const isActive = btn.dataset.theme === activeTheme;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive);
+      });
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      updateThemeButtons('system');
+    }
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+    });
+
+    // Theme toggle expand/collapse
+    const themeToggle = document.querySelector('.theme-toggle');
+
+    themeToggle.addEventListener('click', (e) => {
+      if (e.target.classList.contains('theme-btn') && themeToggle.classList.contains('open')) {
+        themeToggle.classList.remove('open');
+        return;
+      }
+      themeToggle.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!themeToggle.contains(e.target)) {
+        themeToggle.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
