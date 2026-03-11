@@ -2,7 +2,6 @@
 // STUDENT DATA — Edit this array to add/remove students
 // ═══════════════════════════════════════════════════════════════
 const students = [
-  // Example entries (replace with real students):
   {
     name: "Ha Dao",
     url: "https://peachblossoms2077.github.io/MDDN242-Project-1-Website-/",
@@ -17,14 +16,13 @@ const students = [
   },
   {
     name: "Orlando De Gruttola",
-    url: "https://example3.github.io/site",
-    title: "To be updated",
+    url: "https://try7souls.github.io/MDDN242-Project-1/",
     color: "#7a5cb0"
   },
   {
     name: "Anouk Froitzheim",
-    url: "https://example4.github.io",
-   title: "To be Updated",
+    url: "hhttps://cheese-gremlin.github.io/Website-Project/",
+   title: "Castle",
   color: "#0d9734"
   },
   {
@@ -41,11 +39,6 @@ const students = [
     name: "Lukas Joy",
     url: "https://lukas-joy.github.io/portfolio-website/",
     color: "#ebffbb"
-  },
-  {
-    name: "Keira Lundy",
-    url: "https://example5.github.io",
-    title: "To be Updated"
   },
   {
     name: "James McTeigue",
