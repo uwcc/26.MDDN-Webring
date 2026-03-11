@@ -17,6 +17,7 @@ const students = [
   {
     name: "Orlando De Gruttola",
     url: "https://try7souls.github.io/MDDN242-Project-1/",
+    title: "Evil Website",
     color: "#7a5cb0"
   },
   {
@@ -33,6 +34,7 @@ const students = [
   {
     name: "Tomer Hirschauge",
     url: "https://tomer2007.github.io/Tomer2007-MDDN242---Website/",
+    title: "Tome-boy",
     color: "#9b3114"
   },
   {
@@ -43,6 +45,7 @@ const students = [
   {
     name: "James McTeigue",
     url: "https://jamesmcteigue.github.io/Website-Project1/",
+    title: "Alleyway",
     color: "#e22727"
   },
   {
