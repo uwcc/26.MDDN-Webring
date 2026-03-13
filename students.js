@@ -22,7 +22,7 @@ const students = [
   },
   {
     name: "Anouk Froitzheim",
-    url: "hhttps://cheese-gremlin.github.io/Website-Project/",
+    url: "https://cheese-gremlin.github.io/Website-Project/",
    title: "Castle",
   color: "#0d9734"
   },
